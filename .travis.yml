@@ -2,7 +2,7 @@ language: cpp
 sudo: required
 dist: trusty
 before_install:
-  - sudo apt-get install clang-tidy cppcheck
+  - apt-get install clang-tidy cppcheck
 compiler:
 - clang
 - gcc
