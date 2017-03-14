@@ -12,9 +12,9 @@ addons:
 # - sudo apt-get install -y clang-tidy cppcheck
 before_script:
 - clang-format --version
-- clang-tidy --version
 - cppcheck --version
 - cmake --version
+- clang-tidy --version
 compiler:
 - clang
 - gcc
