@@ -2,7 +2,8 @@ language: cpp
 sudo: required
 dist: Xenial
 before_install:
-  - sudo apt-get install clang-tidy cppcheck
+- sudo apt-get update -qq
+- sudo apt-get install -y clang-tidy cppcheck
 compiler:
 - clang
 - gcc
