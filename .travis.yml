@@ -4,6 +4,7 @@ dist: Xenial
 addons:
   apt:
     packages:
+    - clang-format
     - clang-tidy
     - cppcheck
 # before_install:
