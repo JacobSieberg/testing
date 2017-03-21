@@ -22,7 +22,8 @@ compiler:
 os:
 - linux
 script:
-- mkdir build && cd build
+- ls -a
+- mkdir testbuild && cd testbuild
 - cmake ..
 - make
 notifications:
