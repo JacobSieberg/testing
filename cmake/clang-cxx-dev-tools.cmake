@@ -21,7 +21,13 @@ if(CLANG_TIDY)
   add_custom_target(
     tidy
     ALL
-    COMMAND if /usr/bin/clang-tidy ${fsrc} -config='' -- -std=c++11 ${INCLUDE_DIRECTORIES} grep -q 'warnings'; then echo "Failure to the max." fi
+    COMMAND /usr/bin/clang-tidy
+    ${fsrc}
+    -config=''
+    -warnings-as-errors=-*
+    --
+    -std=c++11
+    ${INCLUDE_DIRECTORIES}
     )
 endif()
 
