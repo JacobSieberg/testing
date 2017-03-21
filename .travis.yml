@@ -1,6 +1,4 @@
 language: cpp
-sudo: required
-dist: Xenial
 addons:
   apt:
     packages:
