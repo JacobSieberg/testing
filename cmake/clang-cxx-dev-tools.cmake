@@ -24,7 +24,7 @@ if(CLANG_TIDY)
     COMMAND /usr/bin/clang-tidy
     ${fsrc}
     -config=''
-    -warnings-as-errors=-*
+    -warnings-as-errors=*
     --
     -std=c++11
     ${INCLUDE_DIRECTORIES}
