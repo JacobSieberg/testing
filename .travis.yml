@@ -1,18 +1,17 @@
 language: cpp
+sudo: required
 addons:
-  apt:
-    packages:
-    - clang-format
-    - clang-tidy
-    - cppcheck
+  # apt:
+  #   packages:
+  #   - clang-format
+  #   - clang-tidy
+  #   - cppcheck
   sources:
     - universe
-# before_install:
-# - sudo apt-get update -qq
-# - sudo apt-get install -y clang-tidy cppcheck
+ before_install:
+ - sudo apt-get update -qq
+ - sudo apt-get install -y clang-tidy
 before_script:
-- clang-format --version
-- cppcheck --version
 - cmake --version
 - clang-tidy --version
 compiler:
