@@ -1,5 +1,5 @@
 language: cpp
-dis: trusty
+dist: trusty
 sudo: required
 addons:
   # apt:
