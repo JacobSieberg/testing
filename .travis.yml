@@ -11,7 +11,7 @@ addons:
   #  - universe
 before_install:
 - sudo apt-get update
-- sudo apt-get install -y clangtidy
+- sudo apt-get install -y clang-tidy-3.8
 before_script:
 - cmake --version
 - clang-tidy --version
