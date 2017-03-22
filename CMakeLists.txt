@@ -5,6 +5,9 @@ set(src "main.cpp")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-Include(cmake/clang-cxx-dev-tools.cmake)
+Include(cmake/makefullfilenames.cmake)
+Include(cmake/clang-format.cmake)
+Include(cmake/clang-tidy-check.cmake)
+Include(cmake/cppcheck.cmake)
 
 add_executable(hello ${src})
