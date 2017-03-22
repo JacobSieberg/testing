@@ -38,6 +38,7 @@ if(CPPCHECK)
     check
     ALL
     COMMAND /usr/bin/cppcheck
+    --error-exitcode=1
     ${fsrc}
     ${INCLUDE_DIRECTORIES}
     )
