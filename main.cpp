@@ -6,6 +6,10 @@ using namespace std;
 
 int main() {
   cout << "Hello World!" << endl;
+  string s = "Hello Strings\n";
+  printf(s.c_str());
 
-  return 0;
+  char a[10];
+  a[10] = 'f';
+  return a[4];
 }
