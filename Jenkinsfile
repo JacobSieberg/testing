@@ -7,6 +7,8 @@ pipeline {
                 echo 'Building..'
                 sudo mkdir testbuild
                 cd testbuild
+                cmake .. 
+                make
             }
         }
         stage('Test') {
