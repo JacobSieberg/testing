@@ -1,11 +1,11 @@
 node {
     parallel
-        stage 'Build clang++'
+        node 'Build clang++'
             echo "Building..."
             sh 'cd build && cmake .. -DCMAKE_CXX_COMPILER=clang++'
             sh 'cd build && make'
             echo "Build Complete."
-        stage 'Build g++'
+        node 'Build g++'
             echo 'Building...'
             sh 'cd build && cmake .. -DCMAKE_CXX_COMPILER=g++'
             sh 'cd build && make'
