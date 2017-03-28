@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..' && ls -a && mkdir testbuild && cd testbuild && cmake .. && make
+                echo 'Building..'
+                sudo mkdir testbuild
+                cd testbuild
             }
         }
         stage('Test') {
