@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building..'
                 sudo mkdir testbuild
                 cd testbuild
-                cmake .. 
+                cmake ..
                 make
             }
         }
