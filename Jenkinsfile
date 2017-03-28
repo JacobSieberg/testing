@@ -1,7 +1,10 @@
 node {
     stage 'Build'
         echo "Building"
-        echo "Building 2"
+        mkdir build
+        cd build
+        cmake ..
+        make
     stage 'Test'
         echo "Testing"
     stage 'Deploy'
