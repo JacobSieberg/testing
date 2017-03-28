@@ -1,24 +1,25 @@
 pipeline {
     agent any
     stages {
-        stage("Setup CMAKE for SA checks")
+        stage("Setup CMAKE")
         {
             steps{
                 sh "cd build && cmake .."
             }
         }
-        stage("check")
+        stage("SA")
         {
             steps{
-                echo "Running 'clang-tidy'"
-                sh "cd build && make check"
-            }
-        }
-        stage("Tidy")
-        {
-            steps{
-                echo "Running 'clang-tidy'"
-                sh "cd build && make tidy"
+                parallel (
+                    "clang-tidy":
+                    {
+                        sh "cd build && make tidy"
+                    },
+                    "cppcheck":
+                    {
+                       sh "cd build && make check"
+                    }
+                )
             }
         }
         stage("Build CLang++")
