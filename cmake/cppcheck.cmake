@@ -3,7 +3,6 @@ find_program(CPPCHECK "cppcheck")
 if(CPPCHECK)
   add_custom_target(
     check
-    ALL
     COMMAND /usr/bin/cppcheck
     --error-exitcode=1
     ${fsrc}

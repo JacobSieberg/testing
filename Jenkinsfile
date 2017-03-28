@@ -7,14 +7,16 @@ pipeline {
                 parallel (
                     "clang ++":
                     {
+                        echo "Building using clang++"
                         sh "cd build && cmake .. -DCMAKE_CXX_COMPILER=clang++"
                         sh "cd build && make"
                     },
-                    "g++":
-                    {
-                        sh "cd build && cmake .. -DCMAKE_CXX_COMPILER=g++"
-                        sh "cd build && make"
-                    }
+                    //"g++":
+                    //{
+                    //    echo "Building using g++"
+                    //    sh "cd build && cmake .. -DCMAKE_CXX_COMPILER=g++"
+                    //    sh "cd build && make"
+                    //}
                 )
             }
         }
