@@ -1,25 +1,8 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                sudo mkdir testbuild
-                cd testbuild
-                cmake ..
-                make
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
+node {
+    stage 'Build'
+        echo "Building"
+    stage 'Test'
+        echo "Testing"
+    stage 'Deploy'
+        echo "Deploying"
 }
