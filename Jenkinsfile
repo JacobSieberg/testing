@@ -1,10 +1,9 @@
 node {
     stage 'Build'
-        echo "Building"
-        sh 'ls -a'
-        sh 'cd build'
-        sh 'cmake ..'
-        sh 'make'
+        echo "Building..."
+        sh 'cd build && cmake ..'
+        sh 'cd build && make'
+        echo "Build Complete."
     stage 'Test'
         echo "Testing"
     stage 'Deploy'
