@@ -16,11 +16,6 @@ pipeline {
           "cppcheck": {
             sh 'cd build && make check'
             
-          },
-          "Another Tidy": {
-            sh '''cd build
-make tidy'''
-            
           }
         )
       }
