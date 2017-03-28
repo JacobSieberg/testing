@@ -7,7 +7,7 @@ pipeline {
                 sh "cd build && cmake .."
             }
         }
-        stage("SA")
+        stage("Static Analysis")
         {
             steps{
                 parallel (
@@ -46,6 +46,9 @@ pipeline {
         }
         stage("Deploy")
         {
+            when{
+                expression{ return env.BRANCH_NAME == "master" }
+            }
             steps{
                 echo "deploy"
             }
