@@ -11,7 +11,6 @@ pipeline {
         {
             steps{
                 echo "Running 'clang-tidy'"
-                sh "cd build &&  cmake .."
                 sh "cd build && make check"
             }
         }
@@ -19,7 +18,6 @@ pipeline {
         {
             steps{
                 echo "Running 'clang-tidy'"
-                sh "cd build &&  cmake .."
                 sh "cd build && make tidy"
             }
         }
@@ -31,11 +29,11 @@ pipeline {
                 sh "cd build && make"
             }
         }
-        stage("Build CLang++")
+        stage("Build g++")
         {
             steps{
-                echo "Building using clang++"
-                sh "cd build && cmake .. -DCMAKE_CXX_COMPILER=clang++"
+                echo "Building using g++"
+                sh "cd build && cmake .. -DCMAKE_CXX_COMPILER=g++"
                 sh "cd build && make"
             }
         }
