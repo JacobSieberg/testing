@@ -41,7 +41,7 @@ pipeline {
         stage("Test")
         {
             steps{
-                echo "Test"
+                echo "Test This is a new branch"
             }
         }
         stage("Deploy")
