@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Build")
         {
-            parallel:(
+            parallel (
                 "A":
                     steps {
                         echo "Build"
