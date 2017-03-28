@@ -5,13 +5,15 @@ pipeline {
         {
             steps{
                 parallel (
-                    "A":
+                    "clang ++":
                     {
-                        echo "Build A"
+                        sh "cd build && cmake .. -DCMAKE_CXX_COMPILER=clang++"
+                        sh "cd build && make"
                     },
-                    "B":
+                    "g++":
                     {
-                        echo "Build B"
+                        sh "cd build && cmake .. -DCMAKE_CXX_COMPILER=g++"
+                        sh "cd build && make"
                     }
                 )
             }
@@ -20,6 +22,12 @@ pipeline {
         {
             steps{
                 echo "Test"
+            }
+        }
+        stage("Deploy")
+        {
+            steps{
+                echo "deploy"
             }
         }
     }    
