@@ -14,7 +14,6 @@ pipeline {
                         echo "Build B"
                     }
                 )
-                }
             }
         }
         stage("Test")
