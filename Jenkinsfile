@@ -7,7 +7,7 @@ pipeline {
                 "A":
                     steps {
                         echo "Build"
-                }
+                },
                 "B":
                     steps {
                         echo "Build"
