@@ -1,7 +1,7 @@
 #! /bin/bash
 
 SCRIPT_DIR="$(dirname "$0")"
-source $SCRIPT_DIR/config.sh $1 $2
+source $SCRIPT_DIR/config.sh $1 $2 $3
 
 ### Create Package Script ###
 
