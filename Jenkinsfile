@@ -27,7 +27,7 @@ pipeline {
     stage('Build CLang++') {
       steps {
         echo 'Building using clang++'
-        sh 'cd build && cmake .. -DSETUP-clang'
+        sh 'cd build && cmake .. -DSETUP=clang'
         sh 'cd build && make'
       }
     }
