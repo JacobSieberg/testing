@@ -5,15 +5,15 @@ pipeline {
       steps {
         parallel(
           "clang-format": {
-            sh 'cd build && cmake .. -DSETUP=clang && make format'
+            sh 'mkdir build && cd build && cmake .. -DSETUP=clang && make format'
             
           },
           "clang-tidy": {
-            sh 'cd build && cmake .. -DSETUP=clang && make tidy'
+            sh 'mkdir build && cd build && cmake .. -DSETUP=clang && make tidy'
             
           },
           "cppcheck": {
-            sh 'cd build && cmake .. -DSETUP=clang && make check'
+            sh 'mkdir build && cd build && cmake .. -DSETUP=clang && make check'
             
           }
         )
