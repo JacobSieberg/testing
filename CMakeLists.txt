@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 2.8.9)
 Include(cmake/${SETUP}.cmake)
-project (hello)
 
 set(src "main.cpp")
 
@@ -15,3 +14,4 @@ Include(cmake/clang-tidy-check.cmake)
 Include(cmake/cppcheck.cmake)
 
 add_executable(hello ${src})
+project (hello)
