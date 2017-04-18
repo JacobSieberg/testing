@@ -46,6 +46,7 @@ pipeline {
       }
     }
     stage('Test') {
+      steps {
         parallel(
           "test1": {
             sh '## make tests'
@@ -60,6 +61,7 @@ pipeline {
             sh '## run tests'
           }
         )
+      }
     }
     stage('Package')
     {
