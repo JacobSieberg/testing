@@ -56,24 +56,15 @@ pipeline {
       steps {
         parallel(
           "deb": {
+            sh "chmod +x package-scripts/package.sh"
             sh 'package-scripts/package.sh $GIT_LOCAL_BRANCH $BUILD_NUMBER clang++-3.9'
             
           },
           "legato": {
+            sh "chmod +x package-scripts/bundle.sh"
             sh 'package-scripts/bundle.sh $GIT_LOCAL_BRANCH $BUILD_NUMBER arm-poky-linux-gnueabi-g++'
           }
         )
-      }
-    }
-    stage('Deploy') {
-      when {
-        expression {
-          return env.BRANCH_NAME == "master"
-        }
-        
-      }
-      steps {
-        echo 'deploy'
       }
     }
   }
