@@ -3,7 +3,12 @@ project (hello)
 
 set(src "main.cpp")
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+Include(cmake/${SETUP}.cmake)
+
+get_filename_component(compiler ${CMAKE_CXX_COMPILER} NAME)
+message(STATUS ${compiler})
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/${compiler})
 
 Include(cmake/makefullfilenames.cmake)
 Include(cmake/clang-format.cmake)

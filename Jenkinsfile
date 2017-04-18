@@ -9,6 +9,10 @@ pipeline {
     stage('Static Analysis') {
       steps {
         parallel(
+          "clang-format": {
+            sh 'cd build && make format'
+            
+          },
           "clang-tidy": {
             sh 'cd build && make tidy'
             
@@ -34,9 +38,31 @@ pipeline {
         sh 'cd build && make'
       }
     }
+    stage('Build legato') {
+      steps {
+        echo 'Building using legato toolchain'
+        sh 'cd build && cmake .. -DSETUP=legato'
+        sh 'cd build && make'
+      }
+    }
     stage('Test') {
       steps {
-        echo 'Test This is a new branch'
+        sh '#/path/to/test/command1'
+        sh '#/path/to/test/command2'
+      }
+    }
+    stage('Package')
+    {
+      steps {
+        parallel(
+          "deb": {
+            sh 'package-scripts/package.sh $GIT_LOCAL_BRANCH $BUILD_NUMBER clang++-3.9'
+            
+          },
+          "legato": {
+            sh 'package-scripts/bundle.sh $GIT_LOCAL_BRANCH $BUILD_NUMBER arm-poky-linux-gnueabi-g++'
+          }
+        )
       }
     }
     stage('Deploy') {
