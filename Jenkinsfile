@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Setup CMAKE') {
       steps {
-        sh 'cd build && cmake ..'
+        sh 'cd build && cmake .. -DSETUP=clang'
       }
     }
     stage('Static Analysis') {
@@ -16,11 +16,6 @@ pipeline {
           "cppcheck": {
             sh 'cd build && make check'
             
-          },
-          "Another Tidy": {
-            sh '''cd build
-make tidy'''
-            
           }
         )
       }
@@ -28,14 +23,14 @@ make tidy'''
     stage('Build CLang++') {
       steps {
         echo 'Building using clang++'
-        sh 'cd build && cmake .. -DCMAKE_CXX_COMPILER=clang++'
+        sh 'cd build && cmake .. -DSETUP-clang'
         sh 'cd build && make'
       }
     }
     stage('Build g++') {
       steps {
         echo 'Building using g++'
-        sh 'cd build && cmake .. -DCMAKE_CXX_COMPILER=g++'
+        sh 'cd build && cmake .. -DSETUP=gcc'
         sh 'cd build && make'
       }
     }
