@@ -46,10 +46,20 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        sh '#/path/to/test/command1'
-        sh '#/path/to/test/command2'
-      }
+        parallel(
+          "test1": {
+            sh '## make tests'
+            sh '## run tests'
+          },
+          "test2": {
+            sh '## make tests'
+            sh '## run tests'
+          },
+          "test3": {
+            sh '## make tests'
+            sh '## run tests'
+          }
+        )
     }
     stage('Package')
     {
