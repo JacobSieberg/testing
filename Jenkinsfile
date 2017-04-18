@@ -1,24 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage('Setup CMAKE') {
-      steps {
-        sh 'cd build && cmake .. -DSETUP=clang'
-      }
-    }
     stage('Static Analysis') {
       steps {
         parallel(
           "clang-format": {
-            sh 'cd build && make format'
+            sh 'cd build && cmake .. -DSETUP=clang && make format'
             
           },
           "clang-tidy": {
-            sh 'cd build && make tidy'
+            sh 'cd build && cmake .. -DSETUP=clang && make tidy'
             
           },
           "cppcheck": {
-            sh 'cd build && make check'
+            sh 'cd build && cmake .. -DSETUP=clang && make check'
             
           }
         )
