@@ -1,9 +1,8 @@
 cmake_minimum_required(VERSION 2.8.9)
+Include(cmake/${SETUP}.cmake)
 project (hello)
 
 set(src "main.cpp")
-
-Include(cmake/${SETUP}.cmake)
 
 get_filename_component(compiler ${CMAKE_CXX_COMPILER} NAME)
 message(STATUS ${compiler})
